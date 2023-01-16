@@ -1,8 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, Some(acb534a9-a048-43db-ba0f-148a86ccf24b), Some(CommandSource(console0)))[0m
-[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
-[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/tobydunn/Dev/git/give_me_music/akka_test/target/scala-2.12/classes ...[0m
-[0m[[0m[33mwarn[0m] [0m[0mone deprecation (since 2.6.0); re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
-[0m[[0m[32msuccess[0m] [0m[0mTotal time: 2 s, completed 15 Jan 2023, 23:15:34[0m
-[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

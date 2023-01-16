@@ -1,6 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, Some(dccdb7cb-1a1e-43ca-a0d2-f101063f73fd), Some(CommandSource(console0)))[0m
-[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
-[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/tobydunn/Dev/git/give_me_music/akka_test/target/scala-2.12/classes ...[0m
-[0m[[0m[32msuccess[0m] [0m[0mTotal time: 8 s, completed 15 Jan 2023, 19:12:26[0m
-[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
