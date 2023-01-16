@@ -1,6 +1,6 @@
-# Give-Me-Music
+## Give Me Music
 
-Scala data pipeline which aggregates the music contained in youtube links from tweets on a Kafka topic
+Scala data pipeline which uses Structured Streaming & Akka to aggregate the music contained in youtube links from tweets on a Kafka topic
 
 Service fingerprints each link and returns song and artist names contained within
 
@@ -8,7 +8,7 @@ E.g. Tweet read from topic `@SomeRandomPerson: "omg this tune is too good http:/
 
 Returns
 
-`
+```
 {
     "kind": "youtube#videoListResponse",
     "etag": "NotImplemented",
@@ -37,4 +37,4 @@ Returns
         }
     ]
 }
-`
+```
