@@ -1,0 +1,9 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/tobydunn/Dev/git/give_me_music/akka_test/target/scala-2.12/akka_test_2.12-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	recognisemusic[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/tobydunn/Dev/git/give_me_music/akka_test/target/scala-2.12/classes/recognisemusic[0m
+[0m[[0m[0mdebug[0m] [0m[0m	recognisemusic/YoutubeHTTPRequester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/tobydunn/Dev/git/give_me_music/akka_test/target/scala-2.12/classes/recognisemusic/YoutubeHTTPRequester$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	recognisemusic/YoutubeHTTPRequester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/tobydunn/Dev/git/give_me_music/akka_test/target/scala-2.12/classes/recognisemusic/YoutubeHTTPRequester.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
