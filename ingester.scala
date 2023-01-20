@@ -1,6 +1,11 @@
-// Ingest messages from a Kafka topic into Structured Streaming
+/* 
+ * Ingest messages from a Kafka topic into Structured Streaming
+ */
 
 package ingestmusicstream
+
+import scala.util.matching.Regex
+
 import org.apache.spark.sql.functions.{from_json, to_json,col}
 import org.apache.spark.sql.{Row, DataFrame, ForeachWriter, SparkSession}
 import org.apache.spark.sql.types.{MapType, StringType, StructType}
@@ -13,7 +18,7 @@ abstract class StreamIngester {
 }
 
 // Define a side effect abstract class to perform some write action for each dataframe Row
-abstract class foreach_row_writer extends ForeachWriter[Row] {
+abstract class ForeachRowWriter extends ForeachWriter[Row] {
     // Define any writing here e.g to S3 or just print
     def process(value: Row): Unit
 
@@ -23,7 +28,16 @@ abstract class foreach_row_writer extends ForeachWriter[Row] {
     def close(errorOrNull: Throwable): Unit
 }
 
-class row_printer extends foreach_row_writer {
+class RowPrinter extends ForeachRowWriter {
+    /*
+     * Side affect class which unpacks JSON DataFrame tweet data and prints it
+     *
+     * @param row the Row of the DataFrame which we are processing
+     *  row: [Map("id" -> 1234, "text" ->"Hello this is a tweet")]
+     *
+     * @return Unit ,side affect class so we simply unpack and return Unit
+     *
+     */
     override def process(row: Row): Unit = {
       val row_value = row(0) match {
         // Unpack the map -> @ unchecked to suppress erasure elimination with Map[String, String]
@@ -38,6 +52,16 @@ class row_printer extends foreach_row_writer {
     override def open(partitionId: Long, epochId: Long): Boolean = true
 
     override def close(errorOrNull: Throwable): Unit = {}
+}
+
+class urlParser {
+  def get_url_from_text(text: String): String = {
+    val URL: Regex = """(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])""".r
+    URL.findFirstMatchIn(text) match {
+      case Some(s) => s.toString
+      case None => ""
+    }
+  }
 }
 
 class KafkaStramIngester extends StreamIngester {
@@ -61,13 +85,13 @@ class KafkaStramIngester extends StreamIngester {
   def run_stream(): Unit =
     mapped_dataframe
       .writeStream
-      .foreach(new row_printer)
+      .foreach(new RowPrinter)
       .option("truncate", false)
       .start()
       .awaitTermination()
 
     // TODO
-    //regex url from dataframe
+    // expand shortened URL
     // send req to api
     // post back the song(s)
 }
